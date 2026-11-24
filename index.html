@@ -315,42 +315,6 @@
             overflow: hidden;
         }
 
-        /* Barra flutuante de controlo / troca de núcleo */
-        #emu-toolbar {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            right: 10px;
-            z-index: 100000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            pointer-events: none;
-        }
-
-        .emu-bar-group {
-            display: flex;
-            gap: 6px;
-            pointer-events: auto;
-            flex-wrap: wrap;
-        }
-
-        .emu-btn {
-            background: rgba(25, 25, 25, 0.88);
-            color: #f5d76e;
-            border: 1px solid rgba(212, 175, 55, 0.55);
-            border-radius: 6px;
-            padding: 6px 10px;
-            font-size: 12px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .emu-btn:hover {
-            background: rgba(55, 45, 15, 0.95);
-        }
-
         /* Tela ampliada no celular vertical */
         @media screen and (max-width: 768px) {
             #game-container {
@@ -489,16 +453,6 @@
 
     <!-- Tela do jogo -->
     <div id="game-container">
-        <div id="emu-toolbar">
-            <div class="emu-bar-group">
-                <button type="button" class="emu-btn" id="back-btn">← Voltar</button>
-            </div>
-            <div class="emu-bar-group">
-                <button type="button" class="emu-btn" data-core="gambatte">Core: Gambatte</button>
-                <button type="button" class="emu-btn" data-core="gbc">Core: GBC</button>
-                <button type="button" class="emu-btn" data-core="mgba">Core: mGBA</button>
-            </div>
-        </div>
         <div id="game"></div>
     </div>
 
@@ -583,16 +537,6 @@
 
         document.getElementById('play-btn').addEventListener('click', function() {
             launchEmulator('gambatte', 0);
-        });
-
-        document.querySelectorAll('[data-core]').forEach((btn) => {
-            btn.addEventListener('click', () => {
-                launchEmulator(btn.getAttribute('data-core'), 0);
-            });
-        });
-
-        document.getElementById('back-btn').addEventListener('click', () => {
-            window.location.reload();
         });
     </script>
 
